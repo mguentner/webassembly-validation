@@ -1,0 +1,18 @@
+meta {
+  name: Create Host
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://127.0.0.1:3000/hosts
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "hostname": "foobar",
+    "ipv4": "192.168.168.293dd"
+  }
+}

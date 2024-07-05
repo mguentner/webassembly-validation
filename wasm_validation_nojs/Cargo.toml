@@ -1,0 +1,20 @@
+[package]
+name = "wasm_validation_nojs"
+version = "0.1.0"
+authors = ["Maximilian Güntner <code@mguentner.de>"]
+edition = "2021"
+
+[lib]
+# cdylib builds a a %.wasm file with `cargo build --release --target wasm32-unknown-unknown`
+crate-type = ["cdylib"]
+name = "wasm_validation_nojs"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0.68"
+shared = { path = "../shared" }
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
